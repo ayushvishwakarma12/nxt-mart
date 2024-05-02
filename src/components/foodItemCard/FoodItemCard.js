@@ -32,10 +32,9 @@ const FoodItemCard = (foodData) => {
     (item) => item.data.id === data.id
   );
   const index = cartItem.findIndex((item) => item.data.id === data.id);
-  console.log(data);
 
   return (
-    <div className="border border-slate-400 flex flex-col gap-5 p-4 rounded-2xl  w-[187px] md:h-[263px] md:w-[287px]">
+    <div className="border border-slate-400 flex flex-col gap-2 md:gap-5 p-2 md:p-4 rounded-2xl  w-[160px] md:h-[263px] md:w-[287px]">
       <img
         className="h-[120px] md:min-w-[200px] rounded-2xl object-cover"
         alt={name}
@@ -50,22 +49,22 @@ const FoodItemCard = (foodData) => {
         {existingItemIndex === -1 ? (
           <button
             onClick={() => handleAddToCartButton(data)}
-            className="border-2  px-6 py-2 font-bold border-green-500 rounded-2xl text-green-600 hover:bg-[#088C03] duration-500 hover:text-white
+            className="border-2 px-4  md:px-6 py-2 font-bold border-green-500 rounded-2xl text-green-600 hover:bg-[#088C03] duration-500 hover:text-white
           "
           >
             Add
           </button>
         ) : (
-          <button className=" rounded-xl border-2 px-1 py-2 text-lg flex items-center gap-5 justify-center text-[#088C03] border-[#088C03]">
+          <button className=" rounded-xl border-2 px-1 py-2 text-lg flex items-center gap-2 md:gap-5 justify-center text-[#088C03] border-[#088C03]">
             <span
-              className="font-bold hover:bg-[#088C03] duration-500 hover:text-white flex items-center justify-center rounded-full pb-1  w-[20px] h-[20px]"
+              className="font-bold hover:bg-[#088C03] duration-500 hover:text-white flex items-center justify-center rounded-full pb-1 w-[10px] h-[10px] md:w-[20px] md:h-[20px]"
               onClick={() => removeCartItem(data, "home")}
             >
               -
             </span>
             <span>{cartItem[index].count}</span>
             <span
-              className="font-bold hover:bg-[#088C03] duration-500 hover:text-white flex items-center justify-center rounded-full pb-1  w-[20px] h-[20px]"
+              className="font-bold hover:bg-[#088C03] duration-500 hover:text-white flex items-center justify-center rounded-full pb-1 w-[10px] h-[10px] md:w-[20px] md:h-[20px]"
               onClick={() => addToCartButton(data, "home")}
             >
               +

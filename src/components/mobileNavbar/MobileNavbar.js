@@ -3,10 +3,13 @@ import { BsCart } from "react-icons/bs";
 import { TbLogout2 } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useContext } from "react";
+import { Context } from "../../utils/context/Context";
 
 const MobileNavbar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const { cartItem } = useContext(Context);
 
   const handleLogOutButton = () => {
     Cookies.remove("jwt-token");
@@ -25,6 +28,11 @@ const MobileNavbar = () => {
         </div>
       </Link>
       <Link to={"/cart"}>
+        <div className="relative">
+          <div className="absolute bg-red-500 text-white rounded-full p-1 w-[20px] h-[20px] text-sm flex items-center justify-center -top-2 left-4">
+            {cartItem.length}
+          </div>
+        </div>
         <div
           className={`flex flex-col items-center gap-2 text-base ${
             pathname === "/cart" ? "text-[#088C03] font-bold" : ""

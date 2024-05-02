@@ -29,11 +29,15 @@ const Sidebar = () => {
         Categories
       </h2>
       <ul className="flex flex-col gap-4 md:overflow-y-scroll overflow-y-hidden max-h-[70vh]">
-        <div className="max-w-[180px] flex gap-5 md:gap-0 md:flex-col py-2 items-center md:items-start">
-          <a href={`#`} onClick={() => handleCategoryItemButton("All")}>
+        <div className="max-w-[180px] flex gap-5 md:gap-0 md:flex-col py-2 items-center md:items-stretch">
+          <a
+            className="w-full text-start mr-auto"
+            href={`#`}
+            onClick={() => handleCategoryItemButton("All")}
+          >
             <li
               key={"a"}
-              className={`text-[16px] cursor-pointer hover:bg-green-400 p-2 font-semibold min-w-[100px] h-[80px] md:h-auto truncate rounded-2xl border-[#088C03] border-2 flex items-center justify-center md:border-0 ${
+              className={` text-[16px] cursor-pointer hover:bg-green-400 p-2 font-semibold min-w-[100px] h-[80px] md:h-auto truncate rounded-2xl border-[#088C03] border-2 flex items-center justify-start md:border-0 ${
                 selectedCategory === "All" ? "bg-[#088C03] text-white" : ""
               }`}
             >
@@ -53,7 +57,7 @@ const Sidebar = () => {
                   href={`#${e.name}`}
                   onClick={() => handleCategoryItemButton(e.name)}
                 >
-                  {e.name}
+                  <p className="w-[150px] truncate">{e.name}</p>
                 </a>
               </li>
             );
