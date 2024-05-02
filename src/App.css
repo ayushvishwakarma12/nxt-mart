@@ -1,38 +1,32 @@
-.App {
-  text-align: center;
+.login-page {
+  background-image: url("/public/Background.png");
+  background-position: center;
+  background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 768px) {
+  .login-page {
+    background-image: url("/public/BackgroundMobile.png");
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.scroll {
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.sidebar {
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
   }
-  to {
-    transform: rotate(360deg);
+  ::-webkit-scrollbar-track {
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #088c03;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #88ba1c;
   }
 }
