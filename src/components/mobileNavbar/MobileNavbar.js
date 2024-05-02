@@ -28,11 +28,13 @@ const MobileNavbar = () => {
         </div>
       </Link>
       <Link to={"/cart"}>
-        <div className="relative">
-          <div className="absolute bg-red-500 text-white rounded-full p-1 w-[20px] h-[20px] text-sm flex items-center justify-center -top-2 left-4">
-            {cartItem.length}
+        {cartItem.length > 0 && (
+          <div className="relative">
+            <div className="absolute bg-red-500 text-white rounded-full p-1 w-[20px] h-[20px] text-sm flex items-center justify-center -top-2 left-4">
+              {cartItem.length}
+            </div>
           </div>
-        </div>
+        )}
         <div
           className={`flex flex-col items-center gap-2 text-base ${
             pathname === "/cart" ? "text-[#088C03] font-bold" : ""
