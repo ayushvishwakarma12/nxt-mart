@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, redirect, useNavigate } from "react-router-dom";
 import "./App.css";
 import Cart from "./components/cart/Cart";
 import Home from "./components/homepage/Home";
@@ -108,14 +108,8 @@ function App() {
     >
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route
-          path="/"
-          element={isAuthenticated ? <Home /> : <Navigate to={"/login"} />}
-        />
-        <Route
-          path="/cart"
-          element={isAuthenticated ? <Cart /> : <Navigate to={"/login"} />}
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Context.Provider>

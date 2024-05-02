@@ -20,7 +20,7 @@ const Home = () => {
   const [error, setError] = useState(false);
   const [viewMore, setViewMore] = useState(false);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getData();
@@ -38,7 +38,7 @@ const Home = () => {
     }
   }
 
-  // const jwtToken = Cookies.get("jwt-token");
+  const jwtToken = Cookies.get("jwt-token");
 
   // const filteredItems = () => {
   //   if (category.category === "All") {
@@ -52,9 +52,9 @@ const Home = () => {
   //   return e;
   // };
 
-  // if (jwtToken === undefined) {
-  //   navigate("/login");
-  // }
+  if (jwtToken === undefined) {
+    navigate("/login");
+  }
 
   return (
     <>
