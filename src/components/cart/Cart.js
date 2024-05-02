@@ -7,7 +7,6 @@ import { FaCheck } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import MobileNavbar from "../mobileNavbar/MobileNavbar";
-import Cookies from "js-cookie";
 
 const Cart = () => {
   const { cartItem, removeCartItem, addToCartButton, setCartItem } =
