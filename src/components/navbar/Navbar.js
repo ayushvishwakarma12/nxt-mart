@@ -1,6 +1,6 @@
 import { TbLogout2 } from "react-icons/tb";
 import Cookies from "js-cookie";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../utils/context/Context";
 
@@ -10,6 +10,7 @@ const Navbar = () => {
     Cookies.remove("jwt-token");
     navigate("/login");
   };
+  const { pathname } = useLocation();
 
   const { cartItem } = useContext(Context);
   return (
@@ -24,7 +25,15 @@ const Navbar = () => {
         </Link>
         <ul className="flex gap-5 font-semibold [&>*]:cursor-pointer">
           <Link to={"/"}>
-            <li>Home</li>
+            <li
+              className={`${
+                pathname === "/"
+                  ? "underline underline-offset-8 decoration-[#088C03] text-[#088C03] font-bold"
+                  : ""
+              }`}
+            >
+              Home
+            </li>
           </Link>
           <Link to={"/cart"}>
             {cartItem.length > 0 && (
@@ -34,7 +43,15 @@ const Navbar = () => {
                 </div>
               </div>
             )}
-            <li>Cart</li>
+            <li
+              className={`${
+                pathname === "/cart"
+                  ? "underline underline-offset-8 decoration-[#088C03] text-[#088C03] font-bold"
+                  : ""
+              }`}
+            >
+              Cart
+            </li>
           </Link>
           <li className="flex items-center gap-1">
             <span>

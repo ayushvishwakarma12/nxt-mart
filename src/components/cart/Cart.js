@@ -6,6 +6,7 @@ import { Context } from "../../utils/context/Context";
 import { FaCheck } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import MobileNavbar from "../mobileNavbar/MobileNavbar";
 
 const Cart = () => {
   const { cartItem, removeCartItem, addToCartButton, setCartItem } =
@@ -34,6 +35,9 @@ const Cart = () => {
     <>
       <div className="md:block hidden">
         <Navbar />
+      </div>
+      <div className="fixed bottom-0 w-full md:hidden">
+        <MobileNavbar />
       </div>
       {(!payment || cartItem.length < 1) && (
         <div className="flex py-8 px-4 md:hidden">

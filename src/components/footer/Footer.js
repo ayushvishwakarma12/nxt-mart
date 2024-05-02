@@ -5,7 +5,7 @@ import { FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="h-[379px] bg-[#003F00] flex flex-col justify-center items-center">
+    <div className="hidden md:flex h-[379px] bg-[#003F00]  flex-col justify-center items-center">
       <div className="text-center text-white font-semibold text-xl">
         <p className="text-lg md:text-xl">
           For any queries, contact +91-987654310
@@ -18,7 +18,7 @@ const Footer = () => {
           <FaInstagram className="h-10 w-10" />
         </div>
 
-        <p className="mt-8 font-normal text-lg md:text-xl">
+        <p className="mt-8 font-normal tex  t-lg md:text-xl">
           Copyright &copy; 2023 NxtMart Grocery Supplies Pvt Ltd
         </p>
       </div>

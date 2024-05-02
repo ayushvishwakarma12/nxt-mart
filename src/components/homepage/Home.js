@@ -18,6 +18,7 @@ const Home = () => {
   //const category = useContext(Context);
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(false);
+  const [viewMore, setViewMore] = useState(false);
 
   const navigate = useNavigate();
 
@@ -65,12 +66,12 @@ const Home = () => {
           <div className="fixed bottom-0 w-full bg-white rounded-t-2xl border-2 md:hidden">
             <MobileNavbar />
           </div>
-          <div className="flex md:flex-row flex-col overflow-hidden md:max-h-[80vh]">
+          <div className="flex md:flex-row flex-col overflow-hidden">
             <div className="top-0 max-h-screen w-full md:w-auto bg-white sticky md:block">
               <Sidebar />
             </div>
             {categories?.length > 1 ? (
-              <div className="overflow-y-auto">
+              <div className="overflow-hidden">
                 {categories?.map((e, i) => (
                   <div key={i}>
                     <div className="flex items-center gap-2 py-4 cursor-pointer ">
@@ -83,9 +84,19 @@ const Home = () => {
                       <span>
                         <IoIosArrowForward className="w-8 h-8" />
                       </span>
+                      <div
+                        className="ml-auto px-4 text-[#088C03] md:hidden"
+                        onClick={() => setViewMore(!viewMore)}
+                      >
+                        {viewMore ? "view less" : "view more"}
+                      </div>
                     </div>
 
-                    <ul className="flex gap-5 flex-wrap px-2">
+                    <ul
+                      className={`flex gap-5 overflow-x-scroll no-scrollbar px-2 ${
+                        viewMore ? "flex-wrap" : "overflow-x-scroll"
+                      }`}
+                    >
                       {e.products.map((data, i) => (
                         <FoodItemCard key={i} data={data} />
                       ))}
